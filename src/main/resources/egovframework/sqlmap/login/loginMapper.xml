@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.t1t1.example.login.service.impl.LoginMapper">
+
+	<select id="loginUser" resultType="egovMap">
+
+			SELECT
+				*
+			FROM tb_allsotv_user
+			WHERE USER_ID=#{id}
+
+	</select>
+
+</mapper>
