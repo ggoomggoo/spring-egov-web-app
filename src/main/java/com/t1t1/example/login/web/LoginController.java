@@ -20,7 +20,8 @@ public class LoginController {
 	
 //	@RequestMapping(value = {""}, method = RequestMethod.GET)
 //	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
-	@RequestMapping(value = "/form.do", method = RequestMethod.GET)
+//	@RequestMapping(value = "/form.do", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String loginGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 //		log.debug("start: ", "loginGet");
 		log.debug("start: {}", "loginGet");
@@ -29,12 +30,13 @@ public class LoginController {
 	}
 	
 //	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	@RequestMapping(value = "/form.do", method = RequestMethod.POST)
-//	@RequestMapping(method = RequestMethod.POST)
+//	@RequestMapping(value = "/form.do", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public String loginPost(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		log.debug("start: {}", "loginPost");
 		log.debug("paramMap: {}", paramMap.toString());
-		return "redirect:/login/form.do";
+//		return "redirect:/login/form.do";
+		return "redirect:/login";
 	}
 
 }
