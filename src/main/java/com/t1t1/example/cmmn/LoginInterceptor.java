@@ -15,6 +15,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		try {
+			log.debug("request URL: {}", request.getRequestURI());
 			log.debug("start LoginInterceptor: {}");
 			if (request.getSession().getAttribute("login") != null) {
 				log.debug("isLogined: {}", "true");
