@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,11 +38,21 @@ public class LoginController {
 		
 		Map<String, Object> user = loginService.loginUser(paramMap);
 		if (user != null) {
-			// TODO session
-			return "redirect:/home";
+			req.getSession().setAttribute("login", user);
 		}
-		return "redirect:/login";
 		
+		return "redirect:/home";
+	}
+	
+	// TODO URL 정리 필요; login/logout; 이상함;
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
+		try {
+			req.getSession().invalidate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/home";
 	}
 
 }
