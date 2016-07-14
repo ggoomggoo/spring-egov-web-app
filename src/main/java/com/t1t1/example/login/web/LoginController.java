@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,21 +25,16 @@ public class LoginController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String loginGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		log.debug("start: {}", "loginGet");
-		log.debug("paramMap: {}", paramMap.toString());
 		return "/login/loginForm";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String loginPost(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		log.debug("start: {}", "loginPost");
-		log.debug("paramMap: {}", paramMap.toString());
-		
 		Map<String, Object> user = loginService.loginUser(paramMap);
 		if (user != null) {
 			req.getSession().setAttribute("login", user);
 		}
-		
+		// TODO redirect; 로그인 실패 시 메시지 어떻게 노출?
 		return "redirect:/home";
 	}
 	
