@@ -4,7 +4,7 @@
  --%>
 <html>
 	<head>
-		<meta http-equiv="refresh" content="0;url='/login'">
+		<meta http-equiv="refresh" content="0;url='/home'">
 	</head>
 	<body></body>
 </html>
