@@ -72,4 +72,13 @@
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
     
+    <!-- check Auth -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <mvc:exclude-mapping path="/login"/>
+            <bean class="com.t1t1.example.cmmn.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
 </beans>
