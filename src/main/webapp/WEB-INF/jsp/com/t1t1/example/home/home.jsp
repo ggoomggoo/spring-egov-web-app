@@ -14,6 +14,7 @@
 <body>
 	<div>
 		<h1>hello home</h1>
+		<a href='<spring:message code="url.logout" />'>로그아웃</a>
 	</div>
 	<div>
 	</div>

@@ -43,5 +43,16 @@ public class LoginController {
 		
 		return "redirect:/home";
 	}
+	
+	// TODO URL 정리 필요; login/logout; 이상함;
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
+		try {
+			req.getSession().invalidate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/home";
+	}
 
 }
